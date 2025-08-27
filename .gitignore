@@ -1,0 +1,12 @@
+build/
+devel/
+install/
+log/
+*.pyc
+*.o
+*.so
+*.a
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/c_cpp_properties.json
