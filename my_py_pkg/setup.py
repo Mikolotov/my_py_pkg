@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "py_node =  my_py_pkg.my_first_node:main",
+            "py_node = my_py_pkg.my_first_node:main",
             "robot_news_station = my_py_pkg.robot_news_station:main",
             "smartphone = my_py_pkg.smartphone:main",
             "number_publisher = my_py_pkg.number_publisher:main",
@@ -29,7 +29,8 @@ setup(
             "add_two_ints_client_no_oop = my_py_pkg.add_two_ints_client_no_oop:main",
             "add_two_ints_client = my_py_pkg.add_two_ints_client:main",
             "hardware_status_publisher = my_py_pkg.hardware_status_publisher:main",
-
+            "battery_node = my_py_pkg.battery_node:main",
+            "led_panel_node = my_py_pkg.led_panel_node:main",
         ],
     },
 )
