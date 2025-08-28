@@ -8,7 +8,9 @@ from my_robot_interfaces.msg import LedPanelStatus
 class LedPanelNode(Node):
     def __init__(self):
         super().__init__("led_panel_node")
-        self.led_states_ = [0, 0, 0]
+        self.declare_parameter("led_states", [0, 0, 0])
+        self.led_states_ = list(self.get_parameter("led_states").get_parameter_value().integer_array_value)
+
         self.server_ = self.create_service(SetLed, "set_led", self.set_led_callback)
         self.status_publisher_ = self.create_publisher(LedPanelStatus, "led_panel_status", 10)
         self.get_logger().info("LED Panel started")

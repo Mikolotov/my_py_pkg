@@ -1,0 +1,7 @@
+/led_states_panel1:
+  ros__parameters:
+    led_states: [0, 0, 0]
+
+/led_states_panel2:
+  ros__parameters:
+    led_states: [0, 0, 0, 0, 0, 0]

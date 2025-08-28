@@ -7,9 +7,14 @@ from example_interfaces.msg import String
 class RobotNewsStationNode(Node):
     def __init__(self):
         super().__init__("robot_news_station")
-        self.robot_name_ = "C3PO"
+        self.declare_parameter("robot_name", "C3PO")
+        self.robot_name_ = self.get_parameter("robot_name").get_parameter_value().string_value
+        self.declare_parameter("timer_interval", 1.0)
+        self.timer_interval_ = self.get_parameter("timer_interval").get_parameter_value().double_value
+
+        
         self.publishers_ =self.create_publisher(String, "robot_news", 10)
-        self.timer_ = self.create_timer(0.5, self.publish_news)
+        self.timer_ = self.create_timer(self.timer_interval_, self.publish_news)
         self.get_logger().info("Robot News Station has been started.")
 
     def publish_news(self): 

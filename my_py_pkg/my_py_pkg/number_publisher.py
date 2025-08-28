@@ -6,9 +6,13 @@ from example_interfaces.msg import Int64
 class NumberPublisher(Node): 
     def __init__(self):
         super().__init__("number_publisher") 
-        self.number_: int = 2
+        self.declare_parameter("number", 2)
+        self.declare_parameter("timer_interval", 0.5)
+        self.number_ = self.get_parameter("number").value
+        self.timer_interval_ = self.get_parameter("timer_interval").value
+
         self.publisher_ = self.create_publisher(Int64, "number", 10)
-        self.timer_ = self.create_timer(0.5, self.publish_number)
+        self.timer_ = self.create_timer(self.timer_interval_, self.publish_number)
         self.get_logger().info("Number Publisher has been started.")
 
     def publish_number(self):
