@@ -1,0 +1,4 @@
+/number_publisher_node:
+  ros__parameters:
+    number: 7
+    timer_interval: 2.0
